@@ -291,18 +291,21 @@ export default function Home() {
       <section className="hero" id="top" aria-labelledby="hero-title">
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-copy">
-          <p className="eyebrow pixel"><span className="status-dot" /> PLAYER 01 · ONLINE</p>
+          <p className="eyebrow pixel"><span className="status-dot" /> PLAYER 01 · READY FOR NEW QUESTS</p>
           <h1 id="hero-title">
-            시스템을 이해하고,<br />
-            <span>끝까지 작동하게 만듭니다.</span>
+            기술보다 문제에서<br />
+            <span>출발합니다.</span>
           </h1>
           <p className="hero-lead">
-            차량과 장비의 저수준 통신부터 안전한 시험 실행, 자동 판정, 증적 수집,
-            Windows 애플리케이션과 배포까지 하나의 시스템으로 연결하는 소프트웨어 엔지니어입니다.
+            펌웨어, 애플리케이션, 웹과 시스템의 경계를 넘나들며<br className="hero-lead-break" />
+            문제에 필요한 기술을 탐구하고 하나의 해법으로 연결합니다.
+          </p>
+          <p className="hero-range pixel" aria-label="개발 경험 분야">
+            FIRMWARE <span>·</span> APPLICATION <span>·</span> WEB <span>·</span> TOOLS <span>·</span> AUTOMATION
           </p>
           <div className="hero-actions">
-            <a className="pixel-button primary" href="#experience"><span aria-hidden="true">▶</span> VIEW EXPERIENCE</a>
-            <a className="pixel-button ghost" href="https://github.com/seobaeksol" target="_blank" rel="noreferrer">GITHUB ↗</a>
+            <a className="pixel-button primary" href="#experience"><span aria-hidden="true">▶</span> EXPLORE MY WORK</a>
+            <a className="pixel-button ghost" href="#contact">CONTACT ME ↗</a>
           </div>
         </div>
 
@@ -318,12 +321,12 @@ export default function Home() {
           <dl className="console-stats">
             <div><dt>NAME</dt><dd>KIM SUYOUNG</dd></div>
             <div><dt>CLASS</dt><dd>SOFTWARE ENGINEER</dd></div>
-            <div><dt>FOCUS</dt><dd>SYSTEMS / TOOLS / AUTO</dd></div>
-            <div><dt>BASE</dt><dd>GYEONGGI-DO, KR</dd></div>
+            <div><dt>RANGE</dt><dd>FIRMWARE → PRODUCT</dd></div>
+            <div><dt>STATUS</dt><dd>OPEN TO NEW QUESTS</dd></div>
           </dl>
         </div>
 
-        <a className="scroll-cue pixel" href="#profile">SCROLL TO PLAY <span aria-hidden="true">↓</span></a>
+        <a className="scroll-cue pixel" href="#profile">CONTINUE THE QUEST <span aria-hidden="true">↓</span></a>
       </section>
 
       <div id="content">
@@ -501,9 +504,9 @@ export default function Home() {
         </section>
 
         <section className="section contact-section" id="contact" aria-labelledby="contact-title">
-          <div className="quest-complete pixel">★ QUEST COMPLETE ★</div>
-          <h2 id="contact-title">함께 풀 문제를<br />들려주세요.</h2>
-          <p>장비와 소프트웨어 사이, 반복되는 시험과 운영 사이에 더 나은 구조가 필요하다면 이야기 나누고 싶습니다.</p>
+          <div className="quest-complete pixel">★ NEW QUESTS WELCOME ★</div>
+          <h2 id="contact-title">다음에 함께 풀 문제를<br />들려주세요.</h2>
+          <p>지금까지의 전문 분야는 출발점일 뿐입니다. 새로운 도메인과 역할에서 서로 다른 기술을 연결해 풀어야 할 문제가 있다면 이야기 나누고 싶습니다.</p>
           <div className="contact-actions">
             <a className="pixel-button primary" href="mailto:seobaeksol@gmail.com">EMAIL ME ↗</a>
             <a className="pixel-button ghost" href="https://github.com/seobaeksol" target="_blank" rel="noreferrer">GITHUB ↗</a>

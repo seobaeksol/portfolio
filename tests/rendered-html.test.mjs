@@ -23,15 +23,19 @@ test("server-renders the complete Korean portfolio", async () => {
   assert.match(html, /<html lang="ko">/i);
   assert.match(html, /<title>김수영 \| Software Engineer<\/title>/i);
   assert.match(html, /PLAYER PROFILE/);
-  assert.match(html, /GYEONGGI-DO, KR/);
-  assert.doesNotMatch(html, /GYEONGNAM/);
+  assert.match(html, /PLAYER 01 · READY FOR NEW QUESTS/);
+  assert.match(html, /기술보다 문제에서/);
+  assert.match(html, /펌웨어, 애플리케이션, 웹과 시스템의 경계를 넘나들며/);
+  assert.match(html, /FIRMWARE → PRODUCT/);
+  assert.match(html, /OPEN TO NEW QUESTS/);
   assert.match(html, /WORK EXPERIENCE/);
   assert.match(html, /NIMBUS/);
   assert.match(html, /SELECTED PROJECTS/);
   assert.match(html, /SELECT A QUEST/);
   assert.match(html, /PIXEL LAB/);
-  assert.match(html, /QUEST COMPLETE/);
-  assert.match(html, /href="#experience"[^>]*><span[^>]*>▶<\/span> VIEW EXPERIENCE/);
+  assert.match(html, /NEW QUESTS WELCOME/);
+  assert.match(html, /href="#experience"[^>]*><span[^>]*>▶<\/span> EXPLORE MY WORK/);
+  assert.match(html, /href="#contact"[^>]*>CONTACT ME ↗/);
 
   const projectChoices = html.match(/<input[^>]*class="project-choice"[^>]*>/g) ?? [];
   const projectDetails = html.match(/class="project-detail"/g) ?? [];
@@ -73,7 +77,7 @@ test("server-renders the complete Korean portfolio", async () => {
 
 test("keeps public assets and GitHub Pages deployment ready", async () => {
   await Promise.all([
-    access(new URL("../public/og.png", import.meta.url)),
+    access(new URL("../public/og-problem-first.png", import.meta.url)),
     access(new URL("../public/resume.md", import.meta.url)),
     access(new URL("../scripts/export-static.mjs", import.meta.url)),
     access(new URL("../.github/workflows/deploy-pages.yml", import.meta.url)),
@@ -116,6 +120,6 @@ test("keeps public assets and GitHub Pages deployment ready", async () => {
   assert.match(styles, /\.project-choice:checked ~ \.project-quest-layout \.project-modal-backdrop/);
   assert.match(styles, /@media \(min-width: 560px\) and \(max-width: 760px\)/);
   assert.match(styles, /\.project-quest-layout \{ display: block; height: auto; min-height: 0; border: 0; \}/);
-  assert.match(layout, /og\.png/);
+  assert.match(layout, /og-problem-first\.png/);
   assert.match(packageJson, /"pages:export"/);
 });

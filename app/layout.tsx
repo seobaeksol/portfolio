@@ -5,20 +5,20 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://seobaeksol.github.io"),
   title: "김수영 | Software Engineer",
   description:
-    "차량·장비 통신, 보안 시험 자동화, Windows 도구와 저수준 시스템을 연결하는 소프트웨어 엔지니어 김수영의 포트폴리오입니다.",
+    "펌웨어, 애플리케이션, 웹과 시스템의 경계를 넘나들며 문제에 필요한 기술을 하나의 해법으로 연결하는 소프트웨어 엔지니어 김수영의 포트폴리오입니다.",
   authors: [{ name: "김수영", url: "https://github.com/seobaeksol" }],
   openGraph: {
     type: "website",
     locale: "ko_KR",
-    title: "김수영 | Systems, Tools & Automation",
-    description: "저수준 통신부터 안전한 시험 실행과 운영 도구까지, 끝까지 작동하는 시스템을 만듭니다.",
-    images: [{ url: "/og.png", width: 1792, height: 941, alt: "SUYOUNG.DEV — Kim Suyoung, Systems · Tools · Automation" }],
+    title: "김수영 | 기술보다 문제에서 출발합니다",
+    description: "펌웨어, 애플리케이션, 웹과 시스템의 경계를 넘나들며 문제에 필요한 기술을 하나의 해법으로 연결합니다.",
+    images: [{ url: "/og-problem-first.png", width: 1731, height: 909, alt: "SUYOUNG.DEV — Problem First. Firmware · Application · Web · Systems" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "김수영 | Systems, Tools & Automation",
-    description: "저수준 통신부터 안전한 시험 실행과 운영 도구까지, 끝까지 작동하는 시스템을 만듭니다.",
-    images: ["/og.png"],
+    title: "김수영 | 기술보다 문제에서 출발합니다",
+    description: "펌웨어, 애플리케이션, 웹과 시스템의 경계를 넘나들며 문제에 필요한 기술을 하나의 해법으로 연결합니다.",
+    images: ["/og-problem-first.png"],
   },
 };
 
