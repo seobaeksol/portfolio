@@ -25,10 +25,30 @@ test("server-renders the complete Korean portfolio", async () => {
   assert.match(html, /PLAYER PROFILE/);
   assert.match(html, /WORK EXPERIENCE/);
   assert.match(html, /NIMBUS/);
-  assert.match(html, /PERSONAL PROJECTS/);
+  assert.match(html, /SELECTED PROJECTS/);
+  assert.match(html, /SELECT A QUEST/);
   assert.match(html, /PIXEL LAB/);
   assert.match(html, /QUEST COMPLETE/);
   assert.match(html, /href="#experience"[^>]*><span[^>]*>▶<\/span> VIEW EXPERIENCE/);
+
+  const projectChoices = html.match(/<input[^>]*class="project-choice"[^>]*>/g) ?? [];
+  const projectDetails = html.match(/class="project-detail"/g) ?? [];
+  const labCards = html.match(/class="lab-card"/g) ?? [];
+  assert.equal(projectChoices.length, 10);
+  assert.equal(projectDetails.length, 10);
+  assert.equal(labCards.length, 6);
+  projectChoices.forEach((choice) => assert.doesNotMatch(choice, /\bchecked\b/i));
+  assert.match(html, /KRX-RS/);
+  assert.match(html, /AHOYKEYBOARD/);
+  assert.match(html, /DISTRIBUTED NEWS ANALYTICS/);
+  assert.match(html, /SMART ATTENDANCE/);
+  assert.match(html, /HADOOP ARCHIVE/);
+  assert.match(html, /ALEXA ARCHIVE/);
+  assert.match(html, /CRAWLER ARCHIVE/);
+  assert.match(html, /Repo Tutor/);
+  assert.match(html, /JC4880 Rust Labs/);
+  assert.match(html, /Lofree SpaceFn/);
+  assert.doesNotMatch(html, />News Graph</);
 
   const navigation = html.match(/<nav aria-label="주요 메뉴">([\s\S]*?)<\/nav>/i);
   assert.ok(navigation);
@@ -60,7 +80,10 @@ test("keeps public assets and GitHub Pages deployment ready", async () => {
   ]);
 
   assert.doesNotMatch(resume, /010-4817-4382/);
-  assert.match(page, /project-card/);
+  assert.match(page, /project-quest-window/);
+  assert.match(page, /slug: "smart-attendance"/);
+  assert.match(styles, /\.project-choice:checked/);
+  assert.match(styles, /#quest-smart-attendance:checked/);
   assert.match(styles, /prefers-reduced-motion/);
   assert.match(layout, /og\.png/);
   assert.match(packageJson, /"pages:export"/);

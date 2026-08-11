@@ -1,8 +1,29 @@
-const projects = [
+type ProjectScope = "CLIENT" | "PERSONAL" | "TEAM" | "RESEARCH";
+type Availability = "PUBLIC" | "PRIVATE" | "ARCHIVED";
+
+type Project = {
+  slug: string;
+  no: string;
+  title: string;
+  type: string;
+  scopes: ProjectScope[];
+  availability: Availability;
+  status: string;
+  stack: string[];
+  quest: string;
+  challenges: string[];
+  result: string;
+  links?: { label: string; href: string }[];
+};
+
+const projects: Project[] = [
   {
+    slug: "virozet",
     no: "01",
     title: "VIROZET",
     type: "FIRMWARE + DESKTOP",
+    scopes: ["CLIENT"],
+    availability: "PRIVATE",
     status: "DELIVERED · 2026",
     stack: ["C++", "RP2040", "Rust", "Tauri"],
     quest:
@@ -13,12 +34,14 @@ const projects = [
       "운영자/개발자 권한을 분리한 Rust·Tauri 도구",
     ],
     result: "통합 펌웨어, 두 권한 수준의 운영 도구, UF2 배포 산출물",
-    private: true,
   },
   {
+    slug: "real-hx-tools",
     no: "02",
     title: "RE:AL HX TOOLS",
     type: "FIRMWARE RESEARCH",
+    scopes: ["PERSONAL"],
+    availability: "PRIVATE",
     status: "VERIFIED · 2026",
     stack: ["Python", "HID", "Capstone", "Binary"],
     quest:
@@ -29,12 +52,14 @@ const projects = [
       "실제 하드웨어에서 SpaceFn 탐색 레이어 검증",
     ],
     result: "조회·검증·업데이트 CLI와 반복 가능한 바이너리 분석 흐름",
-    private: true,
   },
   {
+    slug: "repo-books",
     no: "03",
     title: "REPO BOOKS",
     type: "AI DEVELOPER TOOL",
+    scopes: ["PERSONAL"],
+    availability: "PRIVATE",
     status: "BUILT · 2026",
     stack: ["TypeScript", "React", "Fastify", "SQLite"],
     quest:
@@ -45,12 +70,14 @@ const projects = [
       "데스크톱 3열 리더와 모바일 TOC·튜터 UI",
     ],
     result: "생성 품질과 실패 상태를 숨기지 않는 저장소 학습 워크플로",
-    private: true,
   },
   {
+    slug: "nimbus",
     no: "04",
     title: "NIMBUS",
     type: "WINDOWS FILE WORKBENCH",
+    scopes: ["PERSONAL"],
+    availability: "PUBLIC",
     status: "IN PROGRESS · 2026—",
     stack: ["Rust", "GPUI", "Windows API", "ZIP"],
     quest:
@@ -61,12 +88,15 @@ const projects = [
       "Quick Look·명령 팔레트·PowerShell/WSL 연동",
     ],
     result: "fmt·test·clippy -D warnings 자동 검증 통과",
-    href: "https://github.com/seobaeksol/nimbus/tree/agent/nimbus-v1",
+    links: [{ label: "GITHUB · AGENT/NIMBUS-V1", href: "https://github.com/seobaeksol/nimbus/tree/agent/nimbus-v1" }],
   },
   {
+    slug: "esp32-p4-bare-metal",
     no: "05",
     title: "ESP32-P4 BARE METAL",
     type: "LOW-LEVEL RUST",
+    scopes: ["RESEARCH"],
+    availability: "PUBLIC",
     status: "LAB COMPLETE · 2026",
     stack: ["Rust", "no_std", "RISC-V", "PAC"],
     quest:
@@ -77,7 +107,105 @@ const projects = [
       "UART0·USB Serial/JTAG 저수준 문자열 출력",
     ],
     result: "HAL 없이 부팅·출력·watchdog 제어가 가능한 모듈형 펌웨어",
-    href: "https://github.com/seobaeksol/esp32-p4-example",
+    links: [{ label: "GITHUB", href: "https://github.com/seobaeksol/esp32-p4-example" }],
+  },
+  {
+    slug: "krx-rs",
+    no: "06",
+    title: "KRX-RS",
+    type: "RUST DATA CLIENT",
+    scopes: ["PERSONAL"],
+    availability: "PUBLIC",
+    status: "BUILT · 2026",
+    stack: ["Rust", "Tokio", "Polars", "tracing"],
+    quest:
+      "KRX Open API의 여러 시장 데이터를 타입 안전한 Rust 인터페이스와 분석 가능한 DataFrame 흐름으로 연결했습니다.",
+    challenges: [
+      "주식·지수·채권·ETP·파생상품 API를 모듈화한 클라이언트",
+      "날짜·최신 데이터 조회를 표현하는 builder 기반 요청 구성",
+      "비동기 실행, 오류 문맥, 민감정보 필터링 로깅과 Polars 변환",
+    ],
+    result: "예제와 테스트를 포함한 KRX Open API용 비동기 Rust 클라이언트",
+    links: [{ label: "GITHUB", href: "https://github.com/seobaeksol/krx-rs" }],
+  },
+  {
+    slug: "oh-my-desk",
+    no: "07",
+    title: "OH-MY-DESK",
+    type: "TEAM DESKTOP PRODUCT",
+    scopes: ["TEAM"],
+    availability: "PUBLIC",
+    status: "RELEASED · 2017",
+    stack: ["Electron", "React", "Redux", "Jest"],
+    quest:
+      "웹 콘텐츠를 데스크톱 위젯처럼 고정하고 키보드 중심으로 관리할 수 있는 크로스플랫폼 애플리케이션을 팀으로 개발했습니다.",
+    challenges: [
+      "위젯 플로팅과 등록·수정·삭제, 브라우저형 상호작용",
+      "검색 창·전역 단축키·환경설정으로 이어지는 데스크톱 UX",
+      "Windows·macOS 패키징, 단위 테스트와 릴리스 운영",
+    ],
+    result: "공개 릴리스와 커뮤니티 운영까지 이어진 Electron 데스크톱 제품",
+    links: [{ label: "GITHUB · TEAM REPOSITORY", href: "https://github.com/AhKi/oh-my-desk" }],
+  },
+  {
+    slug: "ahoy-keyboard",
+    no: "08",
+    title: "AHOYKEYBOARD",
+    type: "WINDOWS SYSTEM UTILITY",
+    scopes: ["PERSONAL"],
+    availability: "PUBLIC",
+    status: "PROTOTYPE · 2025",
+    stack: ["C#", ".NET 9", "WPF", "Windows"],
+    quest:
+      "외장 키보드를 사용할 때 노트북 내장 키보드를 빠르게 켜고 끌 수 있는 Windows 트레이 유틸리티를 만들었습니다.",
+    challenges: [
+      "관리자 권한이 필요한 키보드 장치 활성화·비활성화 흐름",
+      "현재 장치 상태를 즉시 확인하는 WPF 인터페이스",
+      "백그라운드 실행과 시스템 트레이 중심의 최소 조작 UX",
+    ],
+    result: "키보드 제어·상태 확인·트레이 동작을 갖춘 .NET 9 프로토타입",
+    links: [{ label: "GITHUB", href: "https://github.com/seobaeksol/AhoyKeyboard" }],
+  },
+  {
+    slug: "distributed-news-analytics",
+    no: "09",
+    title: "DISTRIBUTED NEWS ANALYTICS",
+    type: "ACADEMIC DATA SYSTEM",
+    scopes: ["RESEARCH"],
+    availability: "ARCHIVED",
+    status: "PRESENTED · 2017",
+    stack: ["Hadoop", "Spark R", "AWS Lambda", "Alexa"],
+    quest:
+      "뉴스 데이터를 분산 처리해 사회연결망과 핵심 키워드를 분석하고, 결과를 음성 인터페이스로 조회하는 연구 흐름을 구축했습니다.",
+    challenges: [
+      "뉴스 수집·정형화와 PC 4대 Hadoop 분산 처리 환경",
+      "Spark R 기반 중심성 분석과 사회연결망 시각화",
+      "AWS Lambda와 Alexa를 연결한 뉴스 분석 결과 질의",
+    ],
+    result: "분산 뉴스 분석과 음성 인터페이스를 각각 학회 발표로 연결",
+    links: [
+      { label: "HADOOP ARCHIVE", href: "https://github.com/seobaeksol/superhot" },
+      { label: "ALEXA ARCHIVE", href: "https://github.com/seobaeksol/super_hot_echo" },
+      { label: "CRAWLER ARCHIVE", href: "https://github.com/seobaeksol/news_crawling" },
+    ],
+  },
+  {
+    slug: "smart-attendance",
+    no: "10",
+    title: "SMART ATTENDANCE",
+    type: "IOT FULLSTACK SYSTEM",
+    scopes: ["RESEARCH"],
+    availability: "ARCHIVED",
+    status: "BUILT · 2016",
+    stack: ["AWS EC2", "MySQL", "REST API", "Raspberry Pi", "Android"],
+    quest:
+      "스마트폰과 강의실 단말기, 서버를 연결해 학생 출결을 자동으로 확인하는 시스템을 설계하고 구현했습니다.",
+    challenges: [
+      "AWS EC2 웹 서버와 MySQL 기반 출결 데이터 모델",
+      "학생·강의·출석 처리를 연결하는 REST API",
+      "Raspberry Pi 강의실 단말기와 Android 학생용 앱 연동",
+    ],
+    result: "서버·하드웨어·모바일 앱을 관통하는 자동 출결 프로토타입",
   },
 ];
 
@@ -115,12 +243,12 @@ const currentWork = [
 ];
 
 const labItems = [
-  ["OPEN SOURCE", "mdterm", "재귀 Markdown picker와 fuzzy subsequence 검색", "https://github.com/seobaeksol/mdterm/commit/c478b386047478dd9e8482ac5847c18c6fe9ce2e"],
-  ["RUST UI", "GPUI Monitor", "CPU·메모리 시계열과 프로세스·디스크·배터리 모니터", "https://github.com/seobaeksol/gpui-studies"],
-  ["DRIVER", "XL Driver RS", "Vector XL Driver용 system binding과 Rust wrapper", "https://github.com/seobaeksol/xl-driver-rs"],
-  ["DESKTOP", "oh-my-desk", "웹 콘텐츠를 데스크톱 위젯으로 만드는 Electron 플랫폼", "https://github.com/AhKi/oh-my-desk"],
-  ["DISTRIBUTED", "News Graph", "Hadoop·Spark R 기반 뉴스 사회망 분석과 시각화", null],
-  ["HARDWARE", "Smart Attendance", "Raspberry Pi·Android·REST API 기반 자동 출결", null],
+  { type: "AI R&D", title: "Repo Tutor", copy: "Repo Books 이전에 시도한 저장소 색인·학습 도구 실험", href: null, state: "PRIVATE" },
+  { type: "FIRMWARE", title: "JC4880 Rust Labs", copy: "ESP-IDF Rust 빌드와 JC4880 보드 부팅·개발 환경 검증", href: "https://github.com/seobaeksol/jc4880-rust-labs", state: "OPEN ↗" },
+  { type: "RUST UI", title: "GPUI Monitor", copy: "GPUI 컴포넌트와 CPU·메모리·디스크 시스템 지표 UI", href: "https://github.com/seobaeksol/gpui-studies", state: "OPEN ↗" },
+  { type: "DRIVER", title: "XL Driver RS", copy: "Vector XL Driver FFI와 안전한 Rust wrapper 탐구", href: "https://github.com/seobaeksol/xl-driver-rs", state: "OPEN ↗" },
+  { type: "OPEN SOURCE", title: "mdterm", copy: "재귀 Markdown picker와 fuzzy subsequence 검색 기여", href: "https://github.com/seobaeksol/mdterm/commit/c478b386047478dd9e8482ac5847c18c6fe9ce2e", state: "OPEN ↗" },
+  { type: "KEYBOARD", title: "Lofree SpaceFn", copy: "VIA 레이아웃, 벤더 펌웨어 패치 도구와 복구 문서", href: "https://github.com/seobaeksol/lofree-flow-spacefn-layout", state: "OPEN ↗" },
 ] as const;
 
 const skillGroups = [
@@ -246,36 +374,94 @@ export default function Home() {
         </section>
 
         <section className="section projects-section" id="projects" aria-labelledby="projects-title">
-          <div className="section-kicker pixel"><span>03</span> PERSONAL PROJECTS</div>
+          <div className="section-kicker pixel"><span>03</span> SELECTED PROJECTS</div>
           <div className="section-heading-row">
-            <h2 id="projects-title">개인 프로젝트를 선택하세요.</h2>
-            <p>카드를 열면 Quest / Challenge / Result 기록을 확인할 수 있습니다.</p>
+            <h2 id="projects-title">퀘스트를 선택하세요.</h2>
+            <p>외주·개인·팀·연구 프로젝트에서 맡은 문제와 도전, 결과를 구분해 기록했습니다.</p>
           </div>
-          <div className="project-grid">
+
+          <fieldset className="project-quest-window">
+            <legend className="sr-only">상세 내용을 확인할 프로젝트 선택</legend>
             {projects.map((project) => (
-              <details className="project-card" key={project.no}>
-                <summary>
-                  <span className="project-no pixel">PROJECT {project.no}</span>
-                  <span className="project-status"><i />{project.status}</span>
-                  <span className="project-glyph" aria-hidden="true">{project.no === "01" ? "▦" : project.no === "02" ? "⌨" : project.no === "03" ? "▤" : project.no === "04" ? "▣" : "◆"}</span>
-                  <span className="project-type pixel">{project.type}</span>
-                  <span className="project-title">{project.title}</span>
-                  <span className="project-stack">{project.stack.join(" · ")}</span>
-                  <span className="open-label pixel"><b className="closed">OPEN QUEST</b><b className="opened">CLOSE QUEST</b><i>+</i></span>
-                </summary>
-                <div className="quest-panel">
-                  <div className="quest-copy"><span className="mini-label pixel">QUEST</span><p>{project.quest}</p></div>
-                  <div><span className="mini-label pixel">CHALLENGES</span><ol>{project.challenges.map((item) => <li key={item}>{item}</li>)}</ol></div>
-                  <div className="quest-result"><span className="mini-label pixel">RESULT</span><p>{project.result}</p></div>
-                  {project.href ? (
-                    <a className="project-link pixel" href={project.href} target="_blank" rel="noreferrer">VIEW REPOSITORY ↗</a>
-                  ) : (
-                    <span className="private-label pixel">■ PRIVATE REPOSITORY</span>
-                  )}
-                </div>
-              </details>
+              <input
+                aria-controls={`project-detail-${project.slug}`}
+                className="project-choice"
+                id={`quest-${project.slug}`}
+                key={project.slug}
+                name="selected-project"
+                type="radio"
+              />
             ))}
-          </div>
+
+            <div className="project-quest-layout">
+              <div className="project-list" role="list" aria-label="프로젝트 퀘스트 목록">
+                <div className="project-list-bar pixel"><span>QUEST_LOG.DAT</span><span>{projects.length} ENTRIES</span></div>
+                {projects.map((project) => (
+                  <label
+                    className="project-option"
+                    htmlFor={`quest-${project.slug}`}
+                    id={`project-label-${project.slug}`}
+                    key={project.slug}
+                    role="listitem"
+                  >
+                    <span className="project-option-no pixel">{project.no}</span>
+                    <span className="project-option-copy">
+                      <strong>{project.title}</strong>
+                      <small className="pixel">{project.scopes.join(" · ")} · {project.status}</small>
+                    </span>
+                    <span className="project-option-state pixel">{project.availability}</span>
+                    <i aria-hidden="true">›</i>
+                  </label>
+                ))}
+              </div>
+
+              <div className="project-detail-stage" aria-label="선택한 프로젝트 상세 내용">
+                <div className="project-empty">
+                  <span className="project-empty-icon pixel" aria-hidden="true">◇</span>
+                  <strong className="pixel">SELECT A QUEST</strong>
+                  <p>왼쪽 목록에서 프로젝트를 선택하세요.</p>
+                  <small className="pixel">↑ ↓ MOVE · SPACE SELECT</small>
+                </div>
+
+                {projects.map((project) => (
+                  <article
+                    aria-labelledby={`project-detail-title-${project.slug}`}
+                    className="project-detail"
+                    data-project={project.slug}
+                    id={`project-detail-${project.slug}`}
+                    key={project.slug}
+                  >
+                    <header className="project-detail-header">
+                      <div className="project-detail-meta">
+                        <span className="project-detail-no pixel">PROJECT {project.no}</span>
+                        <span className="project-detail-status pixel"><i />{project.status}</span>
+                      </div>
+                      <div className="project-badges pixel">
+                        {project.scopes.map((scope) => <span key={scope}>{scope}</span>)}
+                        <span className={`availability ${project.availability.toLowerCase()}`}>{project.availability}</span>
+                      </div>
+                      <span className="project-detail-type pixel">{project.type}</span>
+                      <h3 id={`project-detail-title-${project.slug}`}>{project.title}</h3>
+                      <div className="project-stack-list">{project.stack.map((skill) => <span key={skill}>{skill}</span>)}</div>
+                    </header>
+
+                    <div className="project-detail-grid">
+                      <div className="quest-copy"><span className="mini-label pixel">QUEST</span><p>{project.quest}</p></div>
+                      <div className="challenge-list"><span className="mini-label pixel">CHALLENGES</span><ol>{project.challenges.map((item) => <li key={item}>{item}</li>)}</ol></div>
+                      <div className="quest-result"><span className="mini-label pixel">RESULT</span><p>{project.result}</p></div>
+                      <div className="project-link-row">
+                        {project.links?.length ? project.links.map((link) => (
+                          <a className="project-link pixel" href={link.href} key={link.href} target="_blank" rel="noreferrer">{link.label} ↗</a>
+                        )) : (
+                          <span className="private-label pixel">■ {project.availability === "PRIVATE" ? "PRIVATE REPOSITORY" : "ARCHIVED · NO PUBLIC REPOSITORY"}</span>
+                        )}
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </fieldset>
         </section>
 
         <section className="section lab-section" id="lab" aria-labelledby="lab-title">
@@ -285,9 +471,9 @@ export default function Home() {
             <p>오픈소스 기여, UI 실험, 드라이버, 분산 처리와 하드웨어까지. 완성도보다 탐구의 방향을 기록합니다.</p>
           </div>
           <div className="lab-grid">
-            {labItems.map(([type, title, copy, href], index) => {
-              const content = <><span className="lab-index pixel">SLOT 0{index + 1}</span><span className="lab-icon" aria-hidden="true">{[">_", "▥", "⚙", "▦", "⌘", "⌁"][index]}</span><span className="lab-type pixel">{type}</span><h3>{title}</h3><p>{copy}</p><span className="lab-open">{href ? "OPEN ↗" : "ARCHIVED"}</span></>;
-              return href ? <a className="lab-card" href={href} target="_blank" rel="noreferrer" key={title}>{content}</a> : <article className="lab-card" key={title}>{content}</article>;
+            {labItems.map((item, index) => {
+              const content = <><span className="lab-index pixel">SLOT 0{index + 1}</span><span className="lab-icon" aria-hidden="true">{[">_", "▥", "⚙", "▦", "⌘", "⌁"][index]}</span><span className="lab-type pixel">{item.type}</span><h3>{item.title}</h3><p>{item.copy}</p><span className="lab-open">{item.state}</span></>;
+              return item.href ? <a className="lab-card" href={item.href} target="_blank" rel="noreferrer" key={item.title}>{content}</a> : <article className="lab-card" key={item.title}>{content}</article>;
             })}
           </div>
         </section>
