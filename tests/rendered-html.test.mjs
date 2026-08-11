@@ -46,6 +46,8 @@ test("server-renders the complete Korean portfolio", async () => {
   assert.match(html, /AHOYKEYBOARD/);
   assert.match(html, /DISTRIBUTED NEWS ANALYTICS/);
   assert.match(html, /SMART ATTENDANCE/);
+  assert.match(html, /펌웨어·운영 도구·현장 배포를 잇는 RP2040 통합 시스템/);
+  assert.match(html, /서버·단말기·앱을 연결한 자동 출결 프로토타입/);
   assert.match(html, /HADOOP ARCHIVE/);
   assert.match(html, /ALEXA ARCHIVE/);
   assert.match(html, /CRAWLER ARCHIVE/);
@@ -86,6 +88,7 @@ test("keeps public assets and GitHub Pages deployment ready", async () => {
   assert.doesNotMatch(resume, /010-4817-4382/);
   assert.match(page, /project-quest-window/);
   assert.match(page, /slug: "smart-attendance"/);
+  assert.match(page, /project-option-summary/);
   assert.match(styles, /\.project-choice:checked/);
   assert.match(styles, /#quest-smart-attendance:checked/);
   assert.match(styles, /prefers-reduced-motion/);
@@ -103,6 +106,10 @@ test("keeps public assets and GitHub Pages deployment ready", async () => {
   assert.match(styles, /\.project-detail-stage \{ height: auto; min-height: 560px; overflow: visible; \}/);
   assert.match(styles, /@media \(pointer: coarse\) and \(min-width: 761px\)/);
   assert.match(styles, /html:has\(\.project-choice:checked\), body:has\(\.project-choice:checked\)/);
+  assert.match(styles, /html \{ max-width: 100%; overflow-x: hidden; overflow-x: clip;/);
+  assert.match(styles, /\.project-option-summary \{ display: -webkit-box;[^}]*-webkit-line-clamp: 2;/);
+  assert.match(styles, /\.project-list \{[^}]*touch-action: pan-y;/);
+  assert.match(styles, /\.project-detail \{[^}]*overflow-x: clip; overflow-y: auto;/);
   assert.match(styles, /grid-template-areas: "no copy arrow" "\. state arrow"/);
   assert.match(styles, /\.project-choice:checked ~ \.project-quest-layout \.project-modal-backdrop/);
   assert.match(styles, /@media \(min-width: 560px\) and \(max-width: 760px\)/);

@@ -10,6 +10,7 @@ type Project = {
   availability: Availability;
   status: string;
   stack: string[];
+  summary: string;
   quest: string;
   challenges: string[];
   result: string;
@@ -26,6 +27,7 @@ const projects: Project[] = [
     availability: "PRIVATE",
     status: "DELIVERED · 2026",
     stack: ["C++", "RP2040", "Rust", "Tauri"],
+    summary: "펌웨어·운영 도구·현장 배포를 잇는 RP2040 통합 시스템",
     quest:
       "RP2040 장치의 펌웨어부터 설정·진단용 데스크톱 도구, 현장 배포 흐름까지 하나의 운영 체계로 연결했습니다.",
     challenges: [
@@ -44,6 +46,7 @@ const projects: Project[] = [
     availability: "PRIVATE",
     status: "VERIFIED · 2026",
     stack: ["Python", "HID", "Capstone", "Binary"],
+    summary: "키보드 펌웨어와 USB OTA 프로토콜을 분석한 패치 도구",
     quest:
       "키보드의 동작을 직접 바꾸기 위해 제조사 펌웨어와 USB OTA 프로토콜을 분석하고 안전한 패치 도구를 만들었습니다.",
     challenges: [
@@ -62,6 +65,7 @@ const projects: Project[] = [
     availability: "PRIVATE",
     status: "BUILT · 2026",
     stack: ["TypeScript", "React", "Fastify", "SQLite"],
+    summary: "GitHub 저장소를 구조적인 기술서로 변환하는 AI 도구",
     quest:
       "큰 GitHub 저장소를 구조와 코드 흐름을 따라 읽을 수 있는 한 권의 기술서로 변환하는 도구를 설계했습니다.",
     challenges: [
@@ -80,6 +84,7 @@ const projects: Project[] = [
     availability: "PUBLIC",
     status: "IN PROGRESS · 2026—",
     stack: ["Rust", "GPUI", "Windows API", "ZIP"],
+    summary: "안전한 대량 작업과 다중 패널을 갖춘 파일 워크벤치",
     quest:
       "다중 폴더 탐색과 대량 파일 작업을 개발자 흐름에 맞게 재설계한 Windows 파일 워크벤치를 개발하고 있습니다.",
     challenges: [
@@ -99,6 +104,7 @@ const projects: Project[] = [
     availability: "PUBLIC",
     status: "LAB COMPLETE · 2026",
     stack: ["Rust", "no_std", "RISC-V", "PAC"],
+    summary: "레지스터 수준에서 구현한 ESP32-P4 Rust 펌웨어 샘플",
     quest:
       "ESP32-P4의 부팅 흐름과 주변장치를 프레임워크 아래가 아닌 레지스터 수준에서 이해하기 위한 샘플을 작성했습니다.",
     challenges: [
@@ -118,6 +124,7 @@ const projects: Project[] = [
     availability: "PUBLIC",
     status: "BUILT · 2026",
     stack: ["Rust", "Tokio", "Polars", "tracing"],
+    summary: "KRX 시장 데이터를 타입 안전하게 다루는 Rust API 클라이언트",
     quest:
       "KRX Open API의 여러 시장 데이터를 타입 안전한 Rust 인터페이스와 분석 가능한 DataFrame 흐름으로 연결했습니다.",
     challenges: [
@@ -137,6 +144,7 @@ const projects: Project[] = [
     availability: "PUBLIC",
     status: "RELEASED · 2017",
     stack: ["Electron", "React", "Redux", "Jest"],
+    summary: "웹 콘텐츠를 위젯처럼 관리하는 Electron 데스크톱 앱",
     quest:
       "웹 콘텐츠를 데스크톱 위젯처럼 고정하고 키보드 중심으로 관리할 수 있는 크로스플랫폼 애플리케이션을 팀으로 개발했습니다.",
     challenges: [
@@ -156,6 +164,7 @@ const projects: Project[] = [
     availability: "PUBLIC",
     status: "PROTOTYPE · 2025",
     stack: ["C#", ".NET 9", "WPF", "Windows"],
+    summary: "내장 키보드를 제어하는 Windows 트레이 유틸리티",
     quest:
       "외장 키보드를 사용할 때 노트북 내장 키보드를 빠르게 켜고 끌 수 있는 Windows 트레이 유틸리티를 만들었습니다.",
     challenges: [
@@ -175,6 +184,7 @@ const projects: Project[] = [
     availability: "ARCHIVED",
     status: "PRESENTED · 2017",
     stack: ["Hadoop", "Spark R", "AWS Lambda", "Alexa"],
+    summary: "분산 뉴스 분석과 음성 질의를 연결한 연구 시스템",
     quest:
       "뉴스 데이터를 분산 처리해 사회연결망과 핵심 키워드를 분석하고, 결과를 음성 인터페이스로 조회하는 연구 흐름을 구축했습니다.",
     challenges: [
@@ -198,6 +208,7 @@ const projects: Project[] = [
     availability: "ARCHIVED",
     status: "BUILT · 2016",
     stack: ["AWS EC2", "MySQL", "REST API", "Raspberry Pi", "Android"],
+    summary: "서버·단말기·앱을 연결한 자동 출결 프로토타입",
     quest:
       "스마트폰과 강의실 단말기, 서버를 연결해 학생 출결을 자동으로 확인하는 시스템을 설계하고 구현했습니다.",
     challenges: [
@@ -414,6 +425,7 @@ export default function Home() {
                     <span className="project-option-no pixel">{project.no}</span>
                     <span className="project-option-copy">
                       <strong>{project.title}</strong>
+                      <span className="project-option-summary">{project.summary}</span>
                       <small className="pixel">{project.scopes.join(" · ")} · {project.status}</small>
                     </span>
                     <span className="project-option-state pixel">{project.availability}</span>
