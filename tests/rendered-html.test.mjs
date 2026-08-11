@@ -23,6 +23,8 @@ test("server-renders the complete Korean portfolio", async () => {
   assert.match(html, /<html lang="ko">/i);
   assert.match(html, /<title>김수영 \| Software Engineer<\/title>/i);
   assert.match(html, /PLAYER PROFILE/);
+  assert.match(html, /GYEONGGI-DO, KR/);
+  assert.doesNotMatch(html, /GYEONGNAM/);
   assert.match(html, /WORK EXPERIENCE/);
   assert.match(html, /NIMBUS/);
   assert.match(html, /SELECTED PROJECTS/);

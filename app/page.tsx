@@ -319,7 +319,7 @@ export default function Home() {
             <div><dt>NAME</dt><dd>KIM SUYOUNG</dd></div>
             <div><dt>CLASS</dt><dd>SOFTWARE ENGINEER</dd></div>
             <div><dt>FOCUS</dt><dd>SYSTEMS / TOOLS / AUTO</dd></div>
-            <div><dt>BASE</dt><dd>GYEONGNAM, KR</dd></div>
+            <div><dt>BASE</dt><dd>GYEONGGI-DO, KR</dd></div>
           </dl>
         </div>
 
