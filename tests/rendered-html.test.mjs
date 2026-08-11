@@ -23,11 +23,23 @@ test("server-renders the complete Korean portfolio", async () => {
   assert.match(html, /<html lang="ko">/i);
   assert.match(html, /<title>김수영 \| Software Engineer<\/title>/i);
   assert.match(html, /PLAYER PROFILE/);
-  assert.match(html, /SELECTED WORK/);
+  assert.match(html, /WORK EXPERIENCE/);
   assert.match(html, /NIMBUS/);
-  assert.match(html, /ADVENTURE LOG/);
+  assert.match(html, /PERSONAL PROJECTS/);
   assert.match(html, /PIXEL LAB/);
   assert.match(html, /QUEST COMPLETE/);
+  assert.match(html, /href="#experience"[^>]*><span[^>]*>▶<\/span> VIEW EXPERIENCE/);
+
+  const navigation = html.match(/<nav aria-label="주요 메뉴">([\s\S]*?)<\/nav>/i);
+  assert.ok(navigation);
+  assert.match(navigation[1], /href="#profile"[^>]*>PROFILE<\/a>/);
+  assert.match(navigation[1], /href="#experience"[^>]*>EXPERIENCE<\/a>/);
+  assert.match(navigation[1], /href="#projects"[^>]*>PROJECTS<\/a>/);
+  assert.match(navigation[1], /href="#lab"[^>]*>LAB<\/a>/);
+  assert.ok(navigation[1].indexOf("#profile") < navigation[1].indexOf("#experience"));
+  assert.ok(navigation[1].indexOf("#experience") < navigation[1].indexOf("#projects"));
+  assert.ok(navigation[1].indexOf("#projects") < navigation[1].indexOf("#lab"));
+  assert.ok(html.indexOf('id="experience"') < html.indexOf('id="projects"'));
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
 });
 

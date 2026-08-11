@@ -142,8 +142,8 @@ export default function Home() {
         </a>
         <nav aria-label="주요 메뉴">
           <a href="#profile">PROFILE</a>
-          <a href="#projects">WORK</a>
-          <a href="#experience">LOG</a>
+          <a href="#experience">EXPERIENCE</a>
+          <a href="#projects">PROJECTS</a>
           <a href="#lab">LAB</a>
         </nav>
         <a className="header-contact" href="#contact">CONTACT ↘</a>
@@ -162,7 +162,7 @@ export default function Home() {
             Windows 애플리케이션과 배포까지 하나의 시스템으로 연결하는 소프트웨어 엔지니어입니다.
           </p>
           <div className="hero-actions">
-            <a className="pixel-button primary" href="#projects"><span aria-hidden="true">▶</span> START EXPLORING</a>
+            <a className="pixel-button primary" href="#experience"><span aria-hidden="true">▶</span> VIEW EXPERIENCE</a>
             <a className="pixel-button ghost" href="https://github.com/seobaeksol" target="_blank" rel="noreferrer">GITHUB ↗</a>
           </div>
         </div>
@@ -219,10 +219,36 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="section experience-section" id="experience" aria-labelledby="experience-title">
+          <div className="section-kicker pixel"><span>02</span> WORK EXPERIENCE</div>
+          <div className="experience-layout">
+            <div className="experience-aside">
+              <p className="company-now pixel">CURRENT COMPANY</p>
+              <h2 id="experience-title">FESCARO</h2>
+              <p>SOFTWARE DEVELOPER<br />2023.10 — PRESENT</p>
+              <div className="xp-badge"><span>DOMAIN</span><strong>AUTOMOTIVE<br />SECURITY</strong></div>
+            </div>
+            <div className="log-list">
+              {currentWork.map((item) => (
+                <article className="log-item" key={item.date}>
+                  <time className="pixel">{item.date}</time>
+                  <div><h3>{item.title}</h3><p>{item.copy}</p><span className="metric pixel">{item.metric}</span></div>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="career-archive">
+            <article><time className="pixel">2021.03 — 12</time><h3>주식회사위노비앤티</h3><p>차량용품 견적·장착 중개 서비스의 인프라, 백엔드, 데이터베이스, 모바일 앱과 관리자 기능 전반을 담당했습니다.</p><span>FULLSTACK · APP DEVELOPER</span></article>
+            <article><time className="pixel">2018.04 — 2020.08</time><h3>FESCARO · FIRST RUN</h3><p>SCMS PKI 인프라, CAN 기반 3D 도시 주행 시뮬레이터와 DoS·Replay 해킹 시뮬레이션을 개발했습니다.</p><span>FULLSTACK DEVELOPER</span></article>
+            <article><time className="pixel">2016.03 — 2018.02</time><h3>JHRSOFT</h3><p>대학 관생 배정 시스템과 CMS·마일리지 시스템의 아키텍처, 데이터베이스와 풀스택 개발을 이끌었습니다.</p><span>FULLSTACK DEVELOPER</span></article>
+          </div>
+        </section>
+
         <section className="section projects-section" id="projects" aria-labelledby="projects-title">
-          <div className="section-kicker pixel"><span>02</span> SELECTED WORK</div>
+          <div className="section-kicker pixel"><span>03</span> PERSONAL PROJECTS</div>
           <div className="section-heading-row">
-            <h2 id="projects-title">프로젝트를 선택하세요.</h2>
+            <h2 id="projects-title">개인 프로젝트를 선택하세요.</h2>
             <p>카드를 열면 Quest / Challenge / Result 기록을 확인할 수 있습니다.</p>
           </div>
           <div className="project-grid">
@@ -249,32 +275,6 @@ export default function Home() {
                 </div>
               </details>
             ))}
-          </div>
-        </section>
-
-        <section className="section experience-section" id="experience" aria-labelledby="experience-title">
-          <div className="section-kicker pixel"><span>03</span> ADVENTURE LOG</div>
-          <div className="experience-layout">
-            <div className="experience-aside">
-              <p className="company-now pixel">CURRENT PARTY</p>
-              <h2 id="experience-title">FESCARO</h2>
-              <p>SOFTWARE DEVELOPER<br />2023.10 — PRESENT</p>
-              <div className="xp-badge"><span>DOMAIN</span><strong>AUTOMOTIVE<br />SECURITY</strong></div>
-            </div>
-            <div className="log-list">
-              {currentWork.map((item) => (
-                <article className="log-item" key={item.date}>
-                  <time className="pixel">{item.date}</time>
-                  <div><h3>{item.title}</h3><p>{item.copy}</p><span className="metric pixel">{item.metric}</span></div>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <div className="career-archive">
-            <article><time className="pixel">2021.03 — 12</time><h3>주식회사위노비앤티</h3><p>차량용품 견적·장착 중개 서비스의 인프라, 백엔드, 데이터베이스, 모바일 앱과 관리자 기능 전반을 담당했습니다.</p><span>FULLSTACK · APP DEVELOPER</span></article>
-            <article><time className="pixel">2018.04 — 2020.08</time><h3>FESCARO · FIRST RUN</h3><p>SCMS PKI 인프라, CAN 기반 3D 도시 주행 시뮬레이터와 DoS·Replay 해킹 시뮬레이션을 개발했습니다.</p><span>FULLSTACK DEVELOPER</span></article>
-            <article><time className="pixel">2016.03 — 2018.02</time><h3>JHRSOFT</h3><p>대학 관생 배정 시스템과 CMS·마일리지 시스템의 아키텍처, 데이터베이스와 풀스택 개발을 이끌었습니다.</p><span>FULLSTACK DEVELOPER</span></article>
           </div>
         </section>
 
