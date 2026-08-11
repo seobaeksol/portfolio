@@ -392,6 +392,13 @@ export default function Home() {
                 type="radio"
               />
             ))}
+            <input
+              aria-label="프로젝트 상세 닫기"
+              className="project-dismiss-choice"
+              id="quest-dismiss"
+              name="selected-project"
+              type="radio"
+            />
 
             <div className="project-quest-layout">
               <div className="project-list" role="list" aria-label="프로젝트 퀘스트 목록">
@@ -416,6 +423,7 @@ export default function Home() {
               </div>
 
               <div className="project-detail-stage" aria-label="선택한 프로젝트 상세 내용">
+                <label aria-label="프로젝트 상세 닫기" className="project-modal-backdrop" htmlFor="quest-dismiss" />
                 <div className="project-empty">
                   <span className="project-empty-icon pixel" aria-hidden="true">◇</span>
                   <strong className="pixel">SELECT A QUEST</strong>
@@ -430,7 +438,9 @@ export default function Home() {
                     data-project={project.slug}
                     id={`project-detail-${project.slug}`}
                     key={project.slug}
+                    role="dialog"
                   >
+                    <label className="project-modal-close pixel" htmlFor="quest-dismiss">CLOSE <span aria-hidden="true">×</span></label>
                     <header className="project-detail-header">
                       <div className="project-detail-meta">
                         <span className="project-detail-no pixel">PROJECT {project.no}</span>
