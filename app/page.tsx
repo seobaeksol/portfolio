@@ -264,8 +264,8 @@ const labItems = [
 
 const skillGroups = [
   ["CORE", "C#", "Rust", "TypeScript", "Python", "C / C++"],
-  ["DESKTOP", ".NET 8/9", "WPF", "WinUI 3", "GPUI", "Tauri"],
-  ["COMM", "CAN", "Automotive Ethernet", "TCP", "SSH/SFTP", "Serial / Modbus"],
+  ["PRODUCT", ".NET 8/9", "WPF", "WinUI 3", "GPUI", "Tauri"],
+  ["CONNECT", "CAN", "Automotive Ethernet", "TCP", "SSH/SFTP", "Serial / Modbus"],
   ["VERIFY", "xUnit", "MSTest", "pytest", "Playwright", "Evidence design"],
   ["SYSTEM", "ESP-IDF", "RP2040", "ESP32-P4", "RISC-V", "Windows API"],
 ];
@@ -334,15 +334,16 @@ export default function Home() {
           <div className="section-kicker pixel"><span>01</span> PLAYER PROFILE</div>
           <div className="profile-layout">
             <div>
-              <h2 id="profile-title">복잡한 경계를<br />명시적인 구조로.</h2>
+              <h2 id="profile-title">넓게 보고,<br />필요한 곳까지 깊이 들어갑니다.</h2>
               <p className="section-intro">
-                C#/.NET 기반 차량 통신·보안 시험 자동화와 현장 장비 운영 소프트웨어를 개발합니다.
-                실장비의 제약, 비동기 통신, 실패와 복구, 자동 검증을 제품의 한 흐름으로 다루는 데 집중합니다.
+                펌웨어, 애플리케이션, 웹과 시스템을 직접 만들며 하나의 문제를 여러 계층에서 다뤄왔습니다.
+                익숙한 기술에 문제를 맞추기보다 요구와 제약을 먼저 이해하고,
+                필요한 기술을 탐구해 적합한 구조로 연결합니다.
               </p>
               <div className="profile-facts">
-                <div><span className="fact-value">10+ YRS</span><span className="fact-label">BUILDING SOFTWARE</span></div>
-                <div><span className="fact-value">172/172</span><span className="fact-label">LATEST E2E + UNIT TESTS</span></div>
-                <div><span className="fact-value">LOW ↔ HIGH</span><span className="fact-label">FIRMWARE TO PRODUCT</span></div>
+                <div><span className="fact-value">10+ YEARS</span><span className="fact-label">BUILDING SOFTWARE</span></div>
+                <div><span className="fact-value">LOW ↔ HIGH</span><span className="fact-label">CROSS-LAYER EXPERIENCE</span></div>
+                <div><span className="fact-value">172 / 172</span><span className="fact-label">LATEST TESTS PASSED</span></div>
               </div>
             </div>
 
@@ -356,7 +357,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <p className="window-note">숙련도 수치 대신, 실제로 연결해 본 기술의 경계를 표시합니다.</p>
+              <p className="window-note">기술의 개수보다, 문제를 해결하며 실제로 연결해 본 영역을 보여줍니다.</p>
             </div>
           </div>
         </section>

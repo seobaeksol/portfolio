@@ -23,6 +23,13 @@ test("server-renders the complete Korean portfolio", async () => {
   assert.match(html, /<html lang="ko">/i);
   assert.match(html, /<title>김수영 \| Software Engineer<\/title>/i);
   assert.match(html, /PLAYER PROFILE/);
+  assert.match(html, /넓게 보고,/);
+  assert.match(html, /필요한 곳까지 깊이 들어갑니다/);
+  assert.match(html, /하나의 문제를 여러 계층에서 다뤄왔습니다/);
+  assert.match(html, /CROSS-LAYER EXPERIENCE/);
+  assert.match(html, /LATEST TESTS PASSED/);
+  assert.match(html, />PRODUCT</);
+  assert.match(html, />CONNECT</);
   assert.match(html, /PLAYER 01 · READY FOR NEW QUESTS/);
   assert.match(html, /기술보다 문제에서/);
   assert.match(html, /펌웨어, 애플리케이션, 웹과 시스템의 경계를 넘나들며/);
